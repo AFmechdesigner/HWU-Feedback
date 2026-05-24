@@ -7,14 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f0f0f;
-      --surface: #1a1a1a;
-      --border: #2a2a2a;
-      --accent: #e8532a;
-      --accent2: #f0a500;
-      --text: #e8e4de;
-      --muted: #666;
-      --hover-bg: #222;
+      --bg: #f0f0f0;
+      --surface: #f8f8f8;
+      --border: #d8d8d8;
+      --accent: #6b1a2a;
+      --accent2: #8b2535;
+      --text: #1a2540;
+      --muted: #7a8099;
+      --hover-bg: #ececec;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,8 +37,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
@@ -53,6 +53,7 @@
       border: 1px solid var(--border);
       border-top: 3px solid var(--accent);
       padding: 2.5rem 2rem;
+      box-shadow: 0 2px 16px rgba(26,37,64,.07);
     }
 
     header {
@@ -106,7 +107,6 @@
       animation: fadeIn .35s ease forwards;
     }
 
-    /* staggered animation */
     .link-list li:nth-child(1)  { animation-delay: .05s }
     .link-list li:nth-child(2)  { animation-delay: .10s }
     .link-list li:nth-child(3)  { animation-delay: .15s }
@@ -140,11 +140,11 @@
     .link-list a:hover {
       background: var(--hover-bg);
       border-color: var(--border);
-      color: var(--accent2);
+      color: var(--accent);
     }
 
     .link-list a:hover .idx {
-      color: var(--accent);
+      color: var(--accent2);
     }
 
     .idx {
