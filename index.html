@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback HWU</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #e8532a;
+      --accent2: #f0a500;
+      --text: #e8e4de;
+      --muted: #666;
+      --hover-bg: #222;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* subtle grid texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      padding: 2.5rem 2rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .4rem;
+    }
+
+    h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    h1 span {
+      color: var(--accent2);
+    }
+
+    .subtitle {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: .4rem;
+      font-weight: 300;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 1.5rem;
+    }
+
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .link-list li {
+      opacity: 0;
+      transform: translateX(-8px);
+      animation: fadeIn .35s ease forwards;
+    }
+
+    /* staggered animation */
+    .link-list li:nth-child(1)  { animation-delay: .05s }
+    .link-list li:nth-child(2)  { animation-delay: .10s }
+    .link-list li:nth-child(3)  { animation-delay: .15s }
+    .link-list li:nth-child(4)  { animation-delay: .20s }
+    .link-list li:nth-child(5)  { animation-delay: .25s }
+    .link-list li:nth-child(6)  { animation-delay: .30s }
+    .link-list li:nth-child(7)  { animation-delay: .35s }
+    .link-list li:nth-child(8)  { animation-delay: .40s }
+    .link-list li:nth-child(9)  { animation-delay: .45s }
+    .link-list li:nth-child(10) { animation-delay: .50s }
+    .link-list li:nth-child(11) { animation-delay: .55s }
+    .link-list li:nth-child(12) { animation-delay: .60s }
+    .link-list li:nth-child(13) { animation-delay: .65s }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .link-list a {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .65rem .85rem;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s;
+      font-size: .9rem;
+    }
+
+    .link-list a:hover {
+      background: var(--hover-bg);
+      border-color: var(--border);
+      color: var(--accent2);
+    }
+
+    .link-list a:hover .idx {
+      color: var(--accent);
+    }
+
+    .idx {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+      min-width: 1.6rem;
+      transition: color .15s;
+    }
+
+    .arrow {
+      margin-left: auto;
+      font-size: .7rem;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity .15s, transform .15s;
+    }
+
+    .link-list a:hover .arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: .7rem;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <header>
+      <p class="label">Hardware Upgrade Italia</p>
+      <h1>Feedback <span>HWU</span></h1>
+      <p class="subtitle">Thread di feedback e compravendita</p>
+    </header>
+    <div class="divider"></div>
+    <ul class="link-list">
+      <li><a href="https://hwupgrade.it/forum/showthread.php?p=29878619" target="_blank" rel="noopener">
+        <span class="idx">01</span>Apple MBP<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=2548817" target="_blank" rel="noopener">
+        <span class="idx">02</span>Alienware M11x<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?p=45529791" target="_blank" rel="noopener">
+        <span class="idx">03</span>RX460<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3028153" target="_blank" rel="noopener">
+        <span class="idx">04</span>HP Mini<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3032723" target="_blank" rel="noopener">
+        <span class="idx">05</span>GT740<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3033380" target="_blank" rel="noopener">
+        <span class="idx">06</span>HP SFF<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3033610" target="_blank" rel="noopener">
+        <span class="idx">07</span>PC AMD<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3033800" target="_blank" rel="noopener">
+        <span class="idx">08</span>GTX750<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?p=48863212" target="_blank" rel="noopener">
+        <span class="idx">09</span>FirePro<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3038923" target="_blank" rel="noopener">
+        <span class="idx">10</span>Quadro K2000<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3040273" target="_blank" rel="noopener">
+        <span class="idx">11</span>CPU 775<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3040534" target="_blank" rel="noopener">
+        <span class="idx">12</span>HP 255 G7<span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://hwupgrade.it/forum/showthread.php?t=3040266" target="_blank" rel="noopener">
+        <span class="idx">13</span>R7 430<span class="arrow">→</span>
+      </a></li>
+    </ul>
+    <footer>
+      <span>13 thread</span>
+      <a href="https://www.hwupgrade.it/forum/" target="_blank" rel="noopener">hwupgrade.it ↗</a>
+    </footer>
+  </div>
+</body>
+</html>
